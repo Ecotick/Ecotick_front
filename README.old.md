@@ -1,1 +1,0 @@
-# Ecotick_front
