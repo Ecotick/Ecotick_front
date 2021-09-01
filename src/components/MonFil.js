@@ -1,15 +1,11 @@
 import React, {useContext} from 'react'
-import {ThemeContext} from '../context/ThemeContext'
-import BtnDarkMode from './BtnDarkMode';
+import './Component.css'
 
 function MonFil() {
 
-    const {darkMode} = useContext(ThemeContext)
-
-    return (
+  return (
         <div>
-            <h1>Hello from mon fil</h1>
-            <BtnDarkMode />
+            <h1>Mon fil d'actualité</h1>
         </div>
     )
 }

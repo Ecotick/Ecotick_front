@@ -1,18 +1,15 @@
-import React, {useContext} from 'react'
-import './BtnDarkMode.css'
-import {ThemeContext} from '../context/ThemeContext';
+import React, { useContext } from "react";
+import "./BtnDarkMode.css";
+import { ThemeContext } from "../context/ThemeContext";
 
 function BtnDarkMode() {
-
-  const {toggleDarkMode} = useContext(ThemeContext)
+  const { toggleDarkMode, darkMode } = useContext(ThemeContext);
 
   return (
-
-    <button
-    onClick={toggleDarkMode}
-    className="btn-darkmode">Dark Mode</button>
-      
-  )
+    <button onClick={toggleDarkMode} className="btn-darkmode">
+      {darkMode ? "Light Mode" : "Dark Mode"}
+    </button>
+  );
 }
 
-export default BtnDarkMode
+export default BtnDarkMode;

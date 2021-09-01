@@ -1,6 +1,7 @@
 import React, {useContext} from 'react'
 import {ThemeContext} from '../context/ThemeContext'
 import BtnDarkMode from './BtnDarkMode';
+import './Component.css'
 
 function Parametres() {
 
@@ -10,7 +11,7 @@ function Parametres() {
 
     return (
         <div>
-            <h1>Hello from parametres</h1>
+            <h1>Parametres</h1>
             <BtnDarkMode />
         </div>
     )

@@ -1,18 +1,11 @@
 import React, {useContext}from 'react'
-import {ThemeContext} from '../context/ThemeContext'
-import BtnDarkMode from './BtnDarkMode';
-
+import './Component.css'
 
 function Messagerie() {
 
-  const {darkMode} = useContext(ThemeContext)
-
-  console.log(darkMode);
-
     return (
         <div>
-            <h1>Welcome to messagerie</h1>
-            <BtnDarkMode />
+            <h1>Messagerie</h1>
         </div>
     )
 }
