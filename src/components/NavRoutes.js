@@ -17,18 +17,18 @@ function NavRoutes() {
 
             <Nav />
 
-                <Switch>
-                  
-                    <Route path="/" exact component={Home} />
+            <Switch>
+              
+                <Route path="/" exact component={Home} />
 
-                    <Route path="/messagerie" exact component={Messagerie} />
+                <Route path="/messagerie" exact component={Messagerie} />
 
-                    <Route path="/monfil" exact component={MonFil} />
+                <Route path="/monfil" exact component={MonFil} />
 
-                    <Route path="/carte" exact component={Carte} />
+                <Route path="/carte" exact component={Carte} />
 
-                    <Route path="/parametres" exact component={Parametres} />
-                </Switch>
+                <Route path="/parametres" exact component={Parametres} />
+            </Switch>
 
             </Router>
             
