@@ -1,9 +1,10 @@
-import React from 'react'
-
+import React, {useContext} from 'react'
+import './Component.css'
 function Carte() {
+
     return (
         <div>
-            <h1>Hello from Carte</h1>
+            <h1>À proximité</h1>
         </div>
     )
 }

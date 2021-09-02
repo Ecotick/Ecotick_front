@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import './Component.css'
 
 function MonFil() {
-    return (
+
+  return (
         <div>
-            <h1>Hello from mon fil</h1>
+            <h1>Mon fil d'actualité</h1>
         </div>
     )
 }

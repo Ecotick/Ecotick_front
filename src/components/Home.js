@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import './Component.css'
 
 function Home() {
+
     return (
         <div>
-            <h1>Bienvenue sur l'accueil</h1>
+            <h1>Accueil</h1>
         </div>
     )
 }

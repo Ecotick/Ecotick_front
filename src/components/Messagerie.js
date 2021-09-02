@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {useContext}from 'react'
+import './Component.css'
 
 function Messagerie() {
+
     return (
         <div>
-            <h1>Welcome to messagerie</h1>
+            <h1>Messagerie</h1>
         </div>
     )
 }

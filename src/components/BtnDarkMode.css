@@ -1,0 +1,16 @@
+.btn-darkmode {
+  /*position: absolute;
+  top: 10px;
+  width: 60px;
+  right: 10px;*/
+  margin-left: 3vw;
+  margin-top: 5vh;
+  height: 2rem;
+  width: 5rem;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px gray ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+}
