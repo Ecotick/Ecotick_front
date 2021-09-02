@@ -7,67 +7,35 @@ import "./Nav.css";
 import "./Sidebar.css";
 import { IconContext } from "react-icons";
 import { NavbarData } from "./NavbarData";
-import * as FaIcons from 'react-icons/fa';
+import * as FaIcons from "react-icons/fa";
 
 function Nav() {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
 
   return (
-    <IconContext.Provider value={{ style:{color: "#fff", fontSize: "30px" }}}>
-        {/*<Link to="/">
-          <img
-          src="https://image.flaticon.com/icons/png/512/483/483361.png"
-          style={{ width: "50px", height: "50px" }}
-          onClick={showSidebar}
-          />
-          </Link>
-          <Link to="/Messagerie">
-          <img
-          src="https://image.flaticon.com/icons/png/512/482/482948.png"
-          style={{ width: "50px", height: "50px" }}
-          />
-          </Link>
-          <Link to="/MonFil">
-          <img
-          src="https://image.flaticon.com/icons/png/512/522/522511.png"
-          style={{ width: "50px", height: "50px" }}
-          />
-          </Link>
-          <Link to="/Carte">
-          <img
-          src="https://image.flaticon.com/icons/png/512/484/484175.png"
-          style={{ width: "50px", height: "50px" }}
-          />
-          </Link>
-          <Link to="/Parametres">
-          <img
-          src="https://image.flaticon.com/icons/png/512/483/483390.png"
-          style={{ width: "50px", height: "50px" }}
-          />
-        </Link> */}
+    <IconContext.Provider
+      value={{ style: { color: "#fff", fontSize: "30px" } }}
+    >
 
       <ul className="nav-list">
         {NavbarData.map((item, index) => {
           return (
             <li key={index} className={item.cName}>
-            <Link to={item.path} onClick={showSidebar}>
-              {item.icon}
-              
-            </Link>
-          </li>
-          )
+              <Link to={item.path} onClick={item.func ? showSidebar : ()=>{}}>
+                {item.icon}
+              </Link>
+            </li>
+          );
         })}
       </ul>
 
       <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-        <ul className="nav-menu-items" onClick={showSidebar}>
+        <ul className="nav-menu-items">
           {SidebarData.map((item, index) => {
             return (
               <li key={index} className={item.cName}>
-                <Link to={item.path}>
-                  {item.icon}
-                </Link>
+                <Link to={item.path}>{item.icon}</Link>
               </li>
             );
           })}

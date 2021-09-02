@@ -5,14 +5,14 @@ import * as ImIcons from 'react-icons/im';
 
 export const SidebarData = [
   {
-    title: 'Home',
-    path: '/',
+    title: 'Recherche',
+    path: '/search',
     icon: <FiIcons.FiSearch />,
     cName: 'nav-text'
   },
   {
-    title: 'Reports',
-    path: '/reports',
+    title: 'Mes Favoris',
+    path: '/favoris',
     icon: <MdIcons.MdFavorite />,
     cName: 'nav-text'
   },
