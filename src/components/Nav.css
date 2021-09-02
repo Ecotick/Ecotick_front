@@ -2,15 +2,10 @@
   list-style-type: none;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: fixed;
   width: 100vw;
   bottom: 0;
-}
-
-.nav-list img{
-  margin: 0 10px; 
-  padding: 5px;
-  border-radius: 15px;
-  border: solid 2px black;
-  background-color: lightgreen;
+  background-color: #060b26;
+  height: 10vh;
 }
