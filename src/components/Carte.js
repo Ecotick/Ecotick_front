@@ -4,7 +4,7 @@ function Carte() {
 
     return (
         <div>
-            <h1>À proximité</h1>
+            <h1>À proximité / Map</h1>
         </div>
     )
 }
