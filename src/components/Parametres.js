@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 import {ThemeContext} from '../context/ThemeContext'
-import BtnDarkMode from './BtnDarkMode';
+import BtnDarkMode from './DarkMode/BtnDarkMode';
 import './Component.css'
 
 function Parametres() {

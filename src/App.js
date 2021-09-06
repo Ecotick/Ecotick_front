@@ -1,5 +1,5 @@
 import './App.css';
-import NavRoutes from './components/NavRoutes'
+import NavRoutes from './components/Navigation/NavRoutes'
 import ThemeContextProvider from './context/ThemeContext'
 
 

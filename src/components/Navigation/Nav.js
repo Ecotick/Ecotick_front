@@ -7,7 +7,7 @@ import "./Nav.css";
 import "./Sidebar.css";
 import { IconContext } from "react-icons";
 import { NavbarData } from "./NavbarData";
-import * as FaIcons from "react-icons/fa";
+
 
 function Nav() {
   const [sidebar, setSidebar] = useState(false);
