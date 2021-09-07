@@ -2,26 +2,27 @@ import React from 'react';
 import mapboxgl from 'mapbox-gl';
 
 mapboxgl.accessToken='pk.eyJ1IjoiaHVndWVzYnJpcXVlbGVyIiwiYSI6ImNrdDlzbmRqZDFmYWwydnBkYmd1ODE1b3cifQ.vQEDGUe5ofdbdaQ1mXbAyQ';
+
 // Sample data 
 const data = [
 	{
-		"location": "Manhattan Ave & Norman Ave at NE corner",
-		"city": "Brooklyn",
-		"state": "New York",
-		"coordinates": [-73.9516030004786,40.72557300071668],
+		"location": "Musée Arthur Rimbaud, 7 quai Arthur Rimbaud",
+		"city": "Charleville-Mezière",
+		"state": "France",
+		"coordinates": [4.726096,49.762085],
 	},
 	{
-		"location": "6th Ave & 42nd St at NW corner",
-		"city": "Manhattan",
-		"state": "New York",
-		"coordinates": [-73.98393399979334,40.75533300052329],
+		"location": "Tribunal judiciaire",
+		"city": "Charleville-Mezière",
+		"state": "France",
+		"coordinates": [4.721555,49.760994],
 	},
-	{
-		"location": "Essex St & Delancey St at SE corner",
-		"city": "Manhattan",
-		"state": "New York",
-		"coordinates": [-73.9882730001973,40.718207001246554],
-	}
+	 {
+	 	"location": "Lycée Vauban, 15 rue André Bouzy",
+	 	"city": "Givet",
+	 	"state": "France",
+	 	"coordinates": [4.816667,50.133333],
+	 }
 ]
 
 class Mapp extends React.Component{
@@ -30,9 +31,9 @@ class Mapp extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			lng: -74,
-			lat: 40.7128,
-			zoom: 12
+			lng: 4.633333,
+			lat: 49.933333,
+			zoom: 9
 		}
 	}
 
@@ -60,7 +61,7 @@ class Mapp extends React.Component{
 	render(){
 		return(
 			<div>
-				<div ref={el => this.mapContainer = el} style={{width:'100%', height:'100vh'}}/>
+				<div ref={el => this.mapContainer = el} style={{width:'100%', height:'80vh'}}/>
 			</div>
 		)
 	}
