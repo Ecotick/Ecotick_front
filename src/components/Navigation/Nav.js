@@ -7,7 +7,7 @@ import "./Nav.css";
 import "./Sidebar.css";
 import { IconContext } from "react-icons";
 import { NavbarData } from "./NavbarData";
-
+import * as FaIcons from 'react-icons/fa';
 
 function Nav() {
   const [sidebar, setSidebar] = useState(false);
@@ -19,10 +19,15 @@ function Nav() {
     >
 
       <ul className="nav-list">
+        <li className="nav-text">
+          <Link to='/' onClick={showSidebar}>
+            <FaIcons.FaUser />
+          </Link>
+        </li>
         {NavbarData.map((item, index) => {
           return (
             <li key={index} className={item.cName}>
-              <Link to={item.path} onClick={item.func ? showSidebar : ()=>{}}>
+              <Link to={item.path}>
                 {item.icon}
               </Link>
             </li>
@@ -35,7 +40,7 @@ function Nav() {
           {SidebarData.map((item, index) => {
             return (
               <li key={index} className={item.cName}>
-                <Link to={item.path}>{item.icon}</Link>
+                <Link to={item.path} className="nav-text">{item.icon}</Link>
               </li>
             );
           })}
