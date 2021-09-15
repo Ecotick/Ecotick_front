@@ -21,3 +21,12 @@ code {
   background: #222;
   color: #f1f1f1;
 }
+
+.displayGround {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 1fr 10vh;
+  grid-template-columns: 80px 1fr;
+  grid-template-areas: "side main"
+                        "bar bar";
+}

@@ -6,11 +6,11 @@ import ThemeContextProvider from './context/ThemeContext'
 function App() {
 
   return (
-    <>
+    <div className="displayGround">
     <ThemeContextProvider>
         <NavRoutes />
     </ThemeContextProvider>
-    </>
+    </div>
     );
 }
 

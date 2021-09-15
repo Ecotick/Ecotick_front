@@ -1,4 +1,6 @@
 div {
+  grid-area: main;
+  z_index: 2;
   text-align: center;
 }
 

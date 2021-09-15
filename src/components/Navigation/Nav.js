@@ -17,23 +17,24 @@ function Nav() {
     <IconContext.Provider
       value={{ style: { color: "#fff", fontSize: "30px" } }}
     >
-
-      <ul className="nav-list">
-        <li className="nav-text">
-          <Link to='/' onClick={showSidebar}>
-            <FaIcons.FaUser />
-          </Link>
-        </li>
-        {NavbarData.map((item, index) => {
-          return (
-            <li key={index} className={item.cName}>
-              <Link to={item.path}>
-                {item.icon}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+      <nav className="navBottom">
+        <ul className="nav-list">
+          <li className="nav-text">
+            <Link to='/' onClick={showSidebar}>
+              <FaIcons.FaUser />
+            </Link>
+          </li>
+          {NavbarData.map((item, index) => {
+            return (
+              <li key={index} className={item.cName}>
+                <Link to={item.path}>
+                  {item.icon}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
 
       <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
         <ul className="nav-menu-items">
