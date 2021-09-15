@@ -1,12 +1,17 @@
-import React from 'react'
-import './Component.css'
-function Carte() {
+import React from "react";
+import "./Component.css";
+import Mapp from "./Map";
 
-    return (
-        <div>
-            <h1>À proximité / Map</h1>
+function Carte() {
+  return (
+    <div>
+        <div className="container-map">
+            <div className="map">
+            <Mapp />
+            </div>
         </div>
-    )
+    </div>
+  );
 }
 
-export default Carte
+export default Carte;
