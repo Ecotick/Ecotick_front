@@ -5,13 +5,13 @@ export const SidebarContext = createContext();
 const SidebarContextProvider = (props) => {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => {
-    setSidebar((sidebar) => !sidebar);
+    setSidebar((sidebar) => !(sidebar));
     gridUpdate(sidebar);
   };
 
-  const gridUpdate = (sidebar) => {
+  const gridUpdate = () => {
     let gridLocation = document.getElementById("app");
-    if (sidebar) {
+    if (!sidebar) {
       gridLocation.classList.add("sidebarActive");
     } else {
       gridLocation.classList.remove("sidebarActive");

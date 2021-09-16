@@ -6,13 +6,13 @@
   display: grid;
   height: 100vh;
   grid-template-rows: 1fr 10vh;
-  grid-template-columns: 80px 1fr;
-  grid-template-areas: "side main"
-                        "bar bar";
+  grid-template-columns:  1fr;
+  grid-template-areas: "main"
+                        "bar";
 }
 
 .sidebarActive {
-  grid-template-columns: 1fr;
-  grid-template-areas: "main"
-                        "bar";
+  grid-template-columns: 80px 1fr;
+  grid-template-areas: "side main"
+                        "bar bar";
 }
