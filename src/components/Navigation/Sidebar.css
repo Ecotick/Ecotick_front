@@ -23,11 +23,15 @@
   top: 0;
   left: -100%;
   transition: 850ms;
+  /* grid-template-areas: "main main"
+                        "bar bar"; */
 }
 
 .nav-menu.active {
   left: 0;
   transition: 350ms;
+  /* grid-template-areas: "side main"
+                        "bar bar"; */
 }
 
 .nav-text {

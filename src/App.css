@@ -10,3 +10,9 @@
   grid-template-areas: "side main"
                         "bar bar";
 }
+
+.sidebarActive {
+  grid-template-columns: 1fr;
+  grid-template-areas: "main"
+                        "bar";
+}

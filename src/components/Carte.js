@@ -7,7 +7,7 @@ function Carte() {
     <div>
         <div className="container-map">
             <div className="map">
-            <Mapp />
+              <Mapp />
             </div>
         </div>
     </div>

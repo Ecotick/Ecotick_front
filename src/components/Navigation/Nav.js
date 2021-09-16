@@ -1,6 +1,7 @@
+import React, { useContext } from "react";
 /* eslint-disable jsx-a11y/alt-text */
 import { Link } from "react-router-dom";
-import { useState } from "react";
+// import { useState } from "react";
 // import logo from '../utilisateur.png';
 import { SidebarData } from "./SidebarData";
 import "./Nav.css";
@@ -8,10 +9,14 @@ import "./Sidebar.css";
 import { IconContext } from "react-icons";
 import { NavbarData } from "./NavbarData";
 import * as FaIcons from 'react-icons/fa';
+import { SidebarContext } from "../../context/SidebarContext";
+
 
 function Nav() {
-  const [sidebar, setSidebar] = useState(false);
-  const showSidebar = () => setSidebar(!sidebar);
+  // const [sidebar, setSidebar] = useState(false);
+  // const showSidebar = () => setSidebar(!sidebar);
+  const { showSidebar, sidebar } = useContext(SidebarContext);
+
 
   return (
     <IconContext.Provider
