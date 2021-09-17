@@ -1,12 +1,19 @@
 import React from 'react'
 import './Component.css'
+import Video from './Ressources/background.mp4'
+
+
 
 function Home() {
 
     return (
-        <div>
-            <h1>Accueil</h1>
-        </div>
+      <div>
+
+        <video muted loop autoPlay>
+        <source src={Video} type="video/mp4"/>
+        </video>
+
+      </div>
     )
 }
 
