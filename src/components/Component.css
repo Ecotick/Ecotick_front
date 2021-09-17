@@ -10,7 +10,7 @@ div {
   position: relative;
   box-sizing: content-box;
   width: 95%;
-  height: auto;
+  height: 80vh;
   margin: auto;
   margin-top: 50px;  
   border: black solid 2px;
