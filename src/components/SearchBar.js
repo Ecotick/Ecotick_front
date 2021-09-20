@@ -9,11 +9,11 @@ function SearchBar() {
           <form role="search" method="get" className="search-form form" action>
             <label>
               <span className="screen-reader-text">Search for...</span>
-              <input type="search" className="search-field" placeholder="Type something..." defaultValue name="s" title />
+              <input type="search" className="search-field" placeholder="Type something..."  />
             </label>
             <input type="submit" className="search-submit button" defaultValue="" />
           </form>
-        </div>
+          </div>
   )
 }
 
