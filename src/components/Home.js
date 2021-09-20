@@ -1,44 +1,34 @@
 import React from 'react'
 import './Component.css'
+import './Home.css'
+import facebook from './Ressources/facebook.png'
+import github from './Ressources/github.png'
+import google from './Ressources/google.png'
 
 function Home() {
 
     return (
-        <div>
-            <h1 className='titreForm'>Login</h1>
-
-            <section className="formulaire">
-
-              <form id="login" className="visible">
-
-                <div className="form">
-                  <label for="email">eMail</label>
-                  <input type="text" id="email" name="email" placeholder="Votre eMail..."></input> <br/>
-                  <label for="pass">password</label>
-                  <input type="password" id="pass" name="pass" placeholder="Votre password.."></input> <br/>
-                  <button className="submmit">Submit</button>
-                </div>
-
-              </form>
-              
-              <h1 className='titreForm'>Register</h1>
-              
-              <form id="register">
-
-                <div className="form">
-                  <label for="email">eMail</label>
-                  <input type="text" id="email" name="email" placeholder="Votre eMail..."></input> <br/>
-                  <label for="pass">password</label>
-                  <input type="password" id="pass" name="pass" placeholder="Votre password.."></input> <br/>
-                  <label for="pass">confirm password</label>
-                  <input type="password" id="pass" name="pass" placeholder="Votre password.."></input> <br/>
-                  <button className="submmit">Submit</button>
-                </div>
-
-                </form>
-
-            </section>
-        </div>
+      <div>
+        <form className="bloc-form">
+          <h2>Sign Up</h2>
+          <p className="already-txt">Already a member ? <a href="#">Log in</a></p>
+          <label htmlFor="email">E-mail</label>
+          <input type="email" id="email" placeholder="name@mail.com" />
+          <label htmlFor="psw">Mot de passe</label>
+          <input type="password" id="psw" placeholder="6 characters min" />
+          <button className="signup-btn">Create an account</button>
+          <p className="others-signup">Or sign up with :</p>
+          <button type="button" className="others-signup-btn">
+            <img src={google} alt="logo-google"/>
+          </button>
+          <button type="button" className="others-signup-btn">
+            <img src={github} alt="logo-github" />
+          </button>
+          <button type="button" className="others-signup-btn">
+            <img src={facebook} alt="logo-facebook" />
+          </button>
+        </form>
+      </div>
     )
 }
 
