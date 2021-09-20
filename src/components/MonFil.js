@@ -1,5 +1,6 @@
 import React from 'react'
 import './Component.css'
+import SearchBar from './SearchBar'
 
 function MonFil() {
 

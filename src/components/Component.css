@@ -6,15 +6,16 @@ div {
 
 .container-map {
   /* margin: 20px; */
-  background: black;
+  background: rgb(253, 251, 251);
   position: relative;
   box-sizing: content-box;
   width: 95%;
-  height: 80vh;
+  height: 85vh;
   margin: auto;
-  margin-top: 50px;  
+  margin-top: 15px;  
   border: black solid 2px;
   border-radius: 5px;
+  overflow: hidden;
   /* position: absolute;
   top: 50%;
   left: 50%;
