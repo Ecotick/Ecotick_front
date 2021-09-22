@@ -1,6 +1,6 @@
 import React from "react";
 import "./Component.css";
-import Mapp from "./Map";
+import MapBox from "./MapBox";
 import SearchBar from './SearchBar'
 
 function Carte() {
@@ -10,7 +10,7 @@ function Carte() {
           
             <div className="map">
               <SearchBar />
-              <Mapp />
+              <MapBox />
             </div>
         </div>
     </div>
