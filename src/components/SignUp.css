@@ -71,6 +71,17 @@ body {
   border: none;
   border-radius: 5px;
 }
+.signup-btn-disable {
+  display: block;
+  padding: 1em;
+  margin: 0.6em 0 2em;
+  width: 100%;
+  font-size: 1.6em;
+  background: #372ac01a;
+  color: #f1f1f1;
+  border: none;
+  border-radius: 5px;
+}
 .others-signup {
   font-size: 1.4em;
   margin-bottom: 0.5em;

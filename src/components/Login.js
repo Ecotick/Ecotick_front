@@ -1,9 +1,9 @@
 import React from 'react'
 import './Component.css'
 import './SignUp.css'
-import facebook from './Ressources/facebook.png'
-import github from './Ressources/github.png'
-import google from './Ressources/google.png'
+// import facebook from './Ressources/facebook.png'
+// import github from './Ressources/github.png'
+// import google from './Ressources/google.png'
 import { Link } from "react-router-dom";
 
 
@@ -23,10 +23,10 @@ function Login() {
           <label htmlFor="psw">Mot de passe</label>
           <input type="password" id="psw" placeholder="6 characters min" />
           
-          <button className="signup-btn">Create an account</button>
-          <p className="others-signup">Or sign up with :</p>
+          <button className="signup-btn">To log in</button>
+          {/* <p className="others-signup">Or sign up with :</p> */}
           
-          <button type="button" className="others-signup-btn">
+          {/* <button type="button" className="others-signup-btn">
             <img src={google} alt="logo-google"/>
           </button>
           
@@ -36,7 +36,7 @@ function Login() {
           
           <button type="button" className="others-signup-btn">
             <img src={facebook} alt="logo-facebook" />
-          </button>
+          </button> */}
         
         </form>
       </div>
