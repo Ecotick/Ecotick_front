@@ -1,13 +1,16 @@
 import React from "react";
 import "./Component.css";
-import Mapp from "./Map";
+import MapBox from "./MapBox";
+import SearchBar from './SearchBar'
 
 function Carte() {
   return (
     <div>
         <div className="container-map">
+          
             <div className="map">
-              <Mapp />
+              <SearchBar />
+              <MapBox />
             </div>
         </div>
     </div>

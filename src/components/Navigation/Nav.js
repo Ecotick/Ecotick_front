@@ -8,7 +8,8 @@ import "./Nav.css";
 import "./Sidebar.css";
 import { IconContext } from "react-icons";
 import { NavbarData } from "./NavbarData";
-import * as FaIcons from 'react-icons/fa';
+// import * as FaIcons from 'react-icons/fa';
+import * as HeroIcons from "react-icons/hi";
 import { SidebarContext } from "../../context/SidebarContext";
 
 
@@ -25,8 +26,8 @@ function Nav() {
       <nav className="navBottom">
         <ul className="nav-list">
           <li className="nav-text">
-            <Link to='/' onClick={showSidebar}>
-              <FaIcons.FaUser />
+            <Link to='#' onClick={showSidebar}>
+              {sidebar ? <HeroIcons.HiChevronDoubleDown /> : <HeroIcons.HiChevronDoubleUp />}
             </Link>
           </li>
           {NavbarData.map((item, index) => {
