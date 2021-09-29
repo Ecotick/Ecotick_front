@@ -21,7 +21,7 @@ function SignUp() {
 
   const [loginData, setLoginData] = useState(data);
  
-  const [error, setError] = useState('')
+  // const [error, setError] = useState('')
 
   const handleChange = e => {
     setLoginData({...loginData, [e.target.id]: e.target.value });
@@ -30,14 +30,13 @@ function SignUp() {
   const handleSubmit = e => {
     e.preventDefault();
     const { email, psw } = loginData;
-    firebase.signupUser(email, psw)
-    .then(user => {
-      setLoginData({...data});
-    })
-    .catch(error => {
-      setError(error);
-      setLoginData({...data});
-    })
+    firebase.signupUser(email, psw);
+    setLoginData({...data});
+    // .then(user => console.log(user))
+    // .catch(error => {
+    //   setError(error);
+    //   setLoginData({...data});
+    // })
   }
 
   const { pseudo, email, psw, confirmpsw } = loginData;
@@ -46,13 +45,13 @@ function SignUp() {
   ? <button className="signup-btn-disable" disabled>Create an account</button> : <button className="signup-btn">Create an account</button>
 
   //gestion erreurs
-  const errorMsg = error !== '' && <span>{error.message}</span>
+  // const errorMsg = error !== '' && <span>{error.message}</span>
 
     return (
       <div>
         <form className="bloc-form" onSubmit={handleSubmit}>
           
-          {errorMsg}
+          {/* {errorMsg} */}
           <h2>Sign Up</h2>
           <p className="already-txt">Already a member ? <Link to='/Login'>Login</Link></p>
           

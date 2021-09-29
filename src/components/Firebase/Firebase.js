@@ -1,44 +1,53 @@
-import app from 'firebase/compat/app';
-import 'firebase/compat/auth';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { initializeApp } from 'firebase/app';
 import {config} from './AccessFirebase';
 
 
+// const app = initializeApp(config);
 
 
 class Firebase {
   constructor(){
-    app.initializeApp(config);
-    this.auth = app.auth();
+    this.app = initializeApp(config);
+    this.auth = getAuth();
   }
 
   //inscription method
-  // signupUser = (email, password) => {
-  //   this.auth.createUserWithEmailAndPassword(email, password);
-  // }
-
-  signupUser(email, psw) {
-    // [START auth_signup_password]
-    app.auth().createUserWithEmailAndPassword(email, psw)
+    signupUser = (email, password) => {
+      createUserWithEmailAndPassword(this.auth, email, password)
       .then((userCredential) => {
         // Signed in 
-        var user = userCredential.user;
-        // ...
+        alert("SignUp Succed !")
+        const user = userCredential.user;
+        return user;
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(`SignUp failed ! --> error ${errorCode} ==> ${errorMessage}`)
       });
-
-    // [END auth_signup_password]
-  }
+    }
   
-
   //connexion method
   loginUser = (email, password) => {
-    this.auth.signInWithEmailAndPassword(email, password);
+    signInWithEmailAndPassword(this.auth, email, password)
+    .then((userCredential) => {
+      // Signed in 
+      console.log("Login Succed !")
+      const user = userCredential.user;
+      return user;
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(`login Failed ! --> error ${errorCode} ==> ${errorMessage}`)
+    });
   }
 
   //deconnexion method
   signOutUser = () => {
     this.auth.signOut()
   }
-
 }
 
 export default Firebase;
