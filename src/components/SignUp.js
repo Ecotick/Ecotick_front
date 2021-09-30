@@ -3,8 +3,8 @@ import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "./Firebase/AuthContext";
 import "./Component.css";
 import "./SignUp.css";
-import facebook from './Ressources/facebook.png'
-import github from './Ressources/github.png'
+import facebook from './Ressources/facebook2.png'
+import twitter from './Ressources/twitter.png'
 import google from './Ressources/google.png'
 
 function SignUp() {
@@ -109,7 +109,7 @@ function SignUp() {
           </button>
           
           <button type="button" className="others-signup-btn">
-            <img src={github} alt="logo-github" />
+            <img src={twitter} alt="logo-github" />
           </button>
           
           <button type="button" className="others-signup-btn">
