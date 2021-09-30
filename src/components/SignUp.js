@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { AuthContext } from "./Firebase/AuthContext";
 import "./Component.css";
 import "./SignUp.css";
-// import facebook from './Ressources/facebook.png'
-// import github from './Ressources/github.png'
-// import google from './Ressources/google.png'
-import { AuthContext } from "./Firebase/AuthContext";
+import facebook from './Ressources/facebook.png'
+import github from './Ressources/github.png'
+import google from './Ressources/google.png'
 
 function SignUp() {
   const [error, setError] = useState('');
@@ -29,12 +29,14 @@ function SignUp() {
     e.preventDefault();
     const { email, psw } = loginData;
       signUp(email, psw)
-      .then((user) => console.log(user))
-      .catch((error) => {
+      .then((user) => {
+        console.log(user)
+        history.push('/monfil')
+        setLoginData({ ...data });
+      })
+        .catch((error) => {
         setError(error);
       });
-    setLoginData({ ...data });
-    history.push('/monfil')
   };
 
   const { pseudo, email, psw, confirmpsw } = loginData;
@@ -42,23 +44,24 @@ function SignUp() {
   const btn =
     pseudo === "" || email === "" || psw === "" || psw !== confirmpsw ? (
       <button className="signup-btn-disable" disabled>
-        Create an account
+        Créer un compte
       </button>
     ) : (
-      <button className="signup-btn">Create an account</button>
+      <button className="signup-btn">Créer un compte</button>
     );
 
   //gestion erreurs
-  // const errorMsg = error !== '' && <span>{error.message}</span>
+  const errorMsg = error !== '' && <span style={{"color": "red"}}>{error.message}</span>
 
   return (
     <div>
       <form className="bloc-form" onSubmit={handleSubmit}>
-        {/* {errorMsg} */}
-        <h2>Sign Up</h2>
+        <h2>S'inscrire</h2>
         <p className="already-txt">
-          Already a member ? <Link to="/Login">Login</Link>
+          Déja membre ? <Link to="/Login">Se connecter</Link>
         </p>
+
+        {errorMsg}
 
         <label htmlFor="pseudo">Pseudo</label>
         <input
@@ -97,8 +100,9 @@ function SignUp() {
         />
 
         {btn}
-        {/* <button className="signup-btn">Create an account</button>
-          <p className="others-signup">Or sign up with :</p>
+        {/* <button className="signup-btn">Create an account</button> */}
+
+          <p className="others-signup">ou s'incrire avec :</p>
           
           <button type="button" className="others-signup-btn">
             <img src={google} alt="logo-google"/>
@@ -110,7 +114,7 @@ function SignUp() {
           
           <button type="button" className="others-signup-btn">
             <img src={facebook} alt="logo-facebook" />
-          </button> */}
+          </button>
       </form>
     </div>
   );

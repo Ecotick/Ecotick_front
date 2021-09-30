@@ -1,32 +1,77 @@
-import React from 'react'
+import React, { useState, useContext } from "react";
+import { Link, useHistory } from "react-router-dom";
+import { AuthContext } from "./Firebase/AuthContext";
 import './Component.css'
 import './SignUp.css'
-// import facebook from './Ressources/facebook.png'
-// import github from './Ressources/github.png'
-// import google from './Ressources/google.png'
-import { Link } from "react-router-dom";
-
-
+import facebook from './Ressources/facebook.png'
+import github from './Ressources/github.png'
+import google from './Ressources/google.png'
 
 function Login() {
+  const [error, setError] = useState('');
+  const history = useHistory();
+  const {login} = useContext(AuthContext);
+
+  const data = {
+    email: "",
+    psw: ""
+  };
+  
+  const [loginData, setLoginData] = useState(data);
+  
+  const handleChange = (e) => {
+    setLoginData({ ...loginData, [e.target.id]: e.target.value });
+  };
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { email, psw } = loginData;
+    login(email, psw)
+    .then((user) => {
+      console.log(user)
+      history.push('/monfil')
+      setLoginData({ ...data });
+    })
+    .catch((error) => {
+      setError(error);
+    });
+  };
+  
+  const { email, psw } = loginData;
+
+  const btn =
+  email === "" || psw === "" ? (
+    <button className="signup-btn-disable" disabled>
+      Se connecter
+    </button>
+  ) : (
+    <button className="signup-btn">Se connecter</button>
+  );
+  
+  //gestion erreurs
+  const errorMsg = error !== '' && <span style={{"color": "red"}}>{error.message}</span>
 
     return (
       <div>
-        <form className="bloc-form">
+        <form className="bloc-form" onSubmit={handleSubmit}>
           
-          <h2>Login</h2>
-          <p className="already-txt">Not a member yet ? <Link to='/SignUp'>Sign Up</Link></p>
-          
+          <h2>Connexion</h2>
+          <p className="already-txt">Pas encore membre ? <Link to='/SignUp'>S'inscrire</Link></p>
+
+          {errorMsg}
+
           <label htmlFor="email">E-mail</label>
-          <input type="email" id="email" placeholder="name@mail.com" />
+          <input onChange={handleChange} value={email} type="email" id="email" placeholder="name@mail.com" />
           
           <label htmlFor="psw">Mot de passe</label>
-          <input type="password" id="psw" placeholder="6 characters min" />
+          <input onChange={handleChange} value={psw} type="password" id="psw" placeholder="6 characters min" />
           
-          <button className="signup-btn">To log in</button>
-          {/* <p className="others-signup">Or sign up with :</p> */}
+          {btn}
+          {/* <button className="signup-btn">Se connecter</button> */}
+
+          <p className="others-signup">Ou se connecter avec :</p>
           
-          {/* <button type="button" className="others-signup-btn">
+          <button type="button" className="others-signup-btn">
             <img src={google} alt="logo-google"/>
           </button>
           
@@ -36,7 +81,7 @@ function Login() {
           
           <button type="button" className="others-signup-btn">
             <img src={facebook} alt="logo-facebook" />
-          </button> */}
+          </button>
         
         </form>
       </div>
