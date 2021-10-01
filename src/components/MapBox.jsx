@@ -27,7 +27,7 @@ const data = [
 
 const styles = {
   width: "125%",
-  height: "76vh",
+  height: "100%",
   position: "absolute"
 };
 

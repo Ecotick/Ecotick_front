@@ -1,21 +1,14 @@
 import React, { useContext } from "react";
-/* eslint-disable jsx-a11y/alt-text */
 import { Link } from "react-router-dom";
-// import { useState } from "react";
-// import logo from '../utilisateur.png';
 import { SidebarData } from "./SidebarData";
 import "./Nav.css";
-import "./Sidebar.css";
 import { IconContext } from "react-icons";
 import { NavbarData } from "./NavbarData";
-// import * as FaIcons from 'react-icons/fa';
 import * as HeroIcons from "react-icons/hi";
 import { SidebarContext } from "../../context/SidebarContext";
 
 
 function Nav() {
-  // const [sidebar, setSidebar] = useState(false);
-  // const showSidebar = () => setSidebar(!sidebar);
   const { showSidebar, sidebar } = useContext(SidebarContext);
 
 
@@ -25,7 +18,7 @@ function Nav() {
     >
       <nav className="navBottom">
         <ul className="nav-list">
-          <li className="nav-text">
+          <li className="nav-text" style={{"width": "50%"}}>
             <Link to='#' onClick={showSidebar}>
               {sidebar ? <HeroIcons.HiChevronDoubleDown /> : <HeroIcons.HiChevronDoubleUp />}
             </Link>
@@ -42,8 +35,8 @@ function Nav() {
         </ul>
       </nav>
 
-      <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-        <ul className="nav-menu-items">
+      <nav className={sidebar ? "side-menu active" : "side-menu"}>
+        <ul className="side-menu-items">
           {SidebarData.map((item, index) => {
             return (
               <li key={index} className={item.cName}>
