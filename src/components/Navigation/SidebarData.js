@@ -5,6 +5,12 @@ import * as ImIcons from 'react-icons/im';
 
 export const SidebarData = [
   {
+    title: 'Connexion',
+    path: '/login',
+    icon: <FiIcons.FiPower />,
+    cName: 'nav-text'
+  },
+  {
     title: 'Recherche',
     path: '/search',
     icon: <FiIcons.FiSearch />,
