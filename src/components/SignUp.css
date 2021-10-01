@@ -1,11 +1,11 @@
-*, ::before, ::after {
+/* *, ::before, ::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-}
+} */
 
 html {
-  font-size: 62.5%;
+ font-size: 45%; /* 62.5%; */
 }
 
 body {
@@ -40,7 +40,7 @@ body {
   font-size: 1rem;
 }
 .bloc-form h2 {
-  font-size: 4.5em;
+  font-size: 4em;
 }
 .already-txt {
   font-size: 1.6em;
@@ -67,6 +67,17 @@ body {
   width: 100%;
   font-size: 1.6em;
   background: #362ac0;
+  color: #f1f1f1;
+  border: none;
+  border-radius: 5px;
+}
+.signup-btn-disable {
+  display: block;
+  padding: 1em;
+  margin: 0.6em 0 2em;
+  width: 100%;
+  font-size: 1.6em;
+  background: #372ac01a;
   color: #f1f1f1;
   border: none;
   border-radius: 5px;
