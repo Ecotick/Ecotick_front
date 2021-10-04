@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "./Nav";
-import SignUp from "../SignUp";
 import Messagerie from "../Messagerie";
 import MonFil from "../MonFil";
 import Carte from "../Carte";
@@ -11,7 +10,9 @@ import Favoris from "../Favoris";
 import QrCode from "../QrCode";
 import Coupons from "../Coupons";
 import Tickets from "../Tickets";
+import SignUp from "../SignUp";
 import Login from "../Login";
+import LogOut from "../LogOut";
 
 function NavRoutes() {
   return (
@@ -19,9 +20,11 @@ function NavRoutes() {
       <Nav />
 
       <Switch>
+        <Route path='/signup' exact component={SignUp} />
+
         <Route path="/login" exact component={Login} />
 
-        <Route path='/signup' exact component={SignUp} />
+        <Route path="/logout" exact component={LogOut} />
 
         <Route path="/messagerie" exact component={Messagerie} />
 
