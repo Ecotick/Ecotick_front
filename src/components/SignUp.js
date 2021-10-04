@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "./Firebase/AuthContext";
 import "./Component.css";
-import "./SignUp.css";
+import "./Logging.css";
 import facebook from './Ressources/facebook2.png'
 import twitter from './Ressources/twitter.png'
 import google from './Ressources/google.png'

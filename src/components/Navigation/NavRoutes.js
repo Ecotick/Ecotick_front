@@ -13,6 +13,7 @@ import Coupons from "../Coupons";
 import Tickets from "../Tickets";
 import SignUp from "../SignUp";
 import Login from "../Login";
+import LogOut from "../LogOut";
 
 function NavRoutes() {
   return (
@@ -22,9 +23,11 @@ function NavRoutes() {
       <Switch>
         <Route path="/" exact component={Home} />
 
+        <Route path="/signup" exact component={SignUp} />
+
         <Route path="/login" exact component={Login} />
 
-        <Route path='/signup' exact component={SignUp} />
+        <Route path="/logout" exact component={LogOut} />
 
         <Route path="/messagerie" exact component={Messagerie} />
 
