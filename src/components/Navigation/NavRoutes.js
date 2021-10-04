@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "./Nav";
+import Home from "../Home";
 import Messagerie from "../Messagerie";
 import MonFil from "../MonFil";
 import Carte from "../Carte";
@@ -20,7 +21,9 @@ function NavRoutes() {
       <Nav />
 
       <Switch>
-        <Route path='/signup' exact component={SignUp} />
+        <Route path="/" exact component={Home} />
+
+        <Route path="/signup" exact component={SignUp} />
 
         <Route path="/login" exact component={Login} />
 
