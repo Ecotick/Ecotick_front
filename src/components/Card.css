@@ -1,0 +1,10 @@
+.card-container {
+  margin: 20px auto;
+  padding: 20px 0;
+  max-width: 50%;
+  background-color: rgb(154, 219, 154);
+}
+
+.card-section {
+  font-size: 1rem;
+}
