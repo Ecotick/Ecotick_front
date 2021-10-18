@@ -11,13 +11,13 @@ function Favoris() {
     readUserCollection()
     .then((snapshot) => {
       const listOfShops = snapshot.docs.map(doc => doc.data())
-      setShopList(listOfShops)
+      setShopList(listOfShops.filter(item => item.Commerce === "true"))
       listOfShops.map((item)=>console.log(item))
-      setDisplay(listOfShops.map((item, PK) => {return <h1 key={PK}>Id : {item.UserId} - Nom : {item.Name} </h1>}))
+      setDisplay(shopList.map((item, PK) => {return <h1 key={PK}>Id : {item.UserId} - Nom : {item.Name} </h1>}))
     })
   }, [])
 
-  console.log(shopList)
+  console.log(display)
 
   return (
     <div>
