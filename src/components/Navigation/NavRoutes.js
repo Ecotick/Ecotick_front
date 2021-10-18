@@ -14,6 +14,7 @@ import Tickets from "../Tickets";
 import SignUp from "../SignUp";
 import Login from "../Login";
 import LogOut from "../LogOut";
+import Admin from "../Admin";
 
 function NavRoutes() {
   return (
@@ -21,6 +22,9 @@ function NavRoutes() {
       <Nav />
 
       <Switch>
+
+        <Route path="/admin" exact component={Admin} />
+        
         <Route path="/" exact component={Home} />
 
         <Route path="/signup" exact component={SignUp} />
