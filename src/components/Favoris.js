@@ -15,15 +15,15 @@ function Favoris() {
         (item) => item.Commerce === true || item.Commerce === "true"
       );
       setDisplay(
-        shopList.map((item, PK) => {
+        shopList.map((item) => {
           return (
             <>
-              <h1 key={PK}>
+              <h1>
                 Id : {item.UserId} - Nom : {item.Name}{" "}
               </h1>
               {item.Devanture && (
                 <img
-                  href={loadImage(item.Devanture)}
+                  src={item.Devanture}
                   alt="Devanture Commerce"
                 ></img>
               )}
@@ -39,8 +39,8 @@ function Favoris() {
   return (
     <div>
       <h1>Mes favoris</h1>
-      {display.map((item) => (
-        <Card content={item} />
+      {display.map((item, index) => (
+        <Card content={item} key={index} />
       ))}
     </div>
   );
