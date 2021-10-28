@@ -1,11 +1,12 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { collection, addDoc, getDocs } from "firebase/firestore"
+import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { config } from "./AccessFirebase";
 
-const store = initializeApp(config)
+const firebaseApp = initializeApp(config);
 
-const db = getFirestore()
+const db = getFirestore();
+const storage = getStorage();
 
 // ---------- Create ----------
 
@@ -21,12 +22,20 @@ export async function createUserDocument(Data) {
 
 export async function readUserCollection() {
   const querySnapshot = await getDocs(collection(db, "Utilisateurs"));
-  const usersList = querySnapshot.docs.map((item) => item.data())
-  console.log(usersList)
+  // const usersList = querySnapshot.docs.map((item) => item.data());
+  // console.log(usersList);
   // querySnapshot.forEach((doc) => {
   //   console.log(`${doc.id} => ${doc.data()}`);
   // });
-  return querySnapshot
+  return querySnapshot;
+}
+
+export async function loadImage(image) {
+  const imageRef = ref(storage, `images/${image}`);
+  console.log(imageRef);
+  const imageFile = await getDownloadURL(imageRef);
+  console.log(imageFile);
+  return imageFile;
 }
 // ---------- Update ----------
 
