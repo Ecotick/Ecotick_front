@@ -1,7 +1,6 @@
 import { readUserCollection } from "./Firebase/Database";
 import { useState, useEffect } from "react";
 import Card from "./Card";
-import { loadImage } from "./Firebase/Database";
 
 function Favoris() {
   // const [shopList, setShopList] = useState()
@@ -14,22 +13,7 @@ function Favoris() {
       const shopList = listOfShops.filter(
         (item) => item.Commerce === true || item.Commerce === "true"
       );
-      setDisplay(
-        shopList.map((item) => {
-          return (
-            <>
-              <h1>
-                Id : {item.UserId} - Nom : {item.Name}{" "}
-              </h1>
-              {item.Devanture && (
-                <img
-                  src={item.Devanture}
-                  alt="Devanture Commerce"
-                ></img>
-              )}
-            </>
-          );
-        })
+      setDisplay(shopList
       );
     });
   }, []);
