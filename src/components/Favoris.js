@@ -1,4 +1,4 @@
-import { readUserCollection } from "./Firebase/Database";
+import { readUserCollection } from "./Firebase";
 import { useState, useEffect } from "react";
 import Card from "./Card";
 
@@ -8,17 +8,16 @@ function Favoris() {
   const [display, setDisplay] = useState([<h1>Loading ...</h1>]);
 
   useEffect(() => {
-    readUserCollection().then((snapshot) => {
-      const listOfShops = snapshot.docs.map((doc) => doc.data());
+    readUserCollection().then(snapshot => {
+      const listOfShops = snapshot.docs.map(doc => doc.data());
       const shopList = listOfShops.filter(
-        (item) => item.Commerce === true || item.Commerce === "true"
+        item => item.Commerce === true || item.Commerce === "true"
       );
-      setDisplay(shopList
-      );
+      setDisplay(shopList);
     });
   }, []);
 
-  display.map((item) => console.log(item));
+  display.map(item => console.log(item));
 
   return (
     <div>
