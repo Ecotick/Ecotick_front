@@ -5,14 +5,18 @@
 .displayGround {
   display: grid;
   height: 100vh;
-  grid-template-rows: 1fr 5vh;
-  grid-template-columns:  1fr;
-  grid-template-areas: "main"
-                        "bar";
+  grid-template:
+    1fr
+    49px
+    / 1fr;
+  grid-template-areas:
+    "main"
+    "bar";
 }
 
 .sidebarActive {
-  grid-template-columns: 10vw 1fr;
-  grid-template-areas: "side main"
-                        "bar bar";
+  grid-template-columns: minmax(50px, 10vw) 1fr; /* TODO minmax */
+  grid-template-areas:
+    "side main"
+    "bar bar";
 }

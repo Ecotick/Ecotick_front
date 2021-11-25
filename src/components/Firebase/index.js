@@ -17,7 +17,12 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import { getStorage, ref, getDownloadURL } from "@firebase/storage";
+import {
+  getStorage,
+  ref,
+  getDownloadURL,
+  connectStorageEmulator,
+} from "@firebase/storage";
 
 import { config } from "./AccessFirebase";
 
@@ -31,15 +36,24 @@ if (window.location.hostname === "localhost") {
   console.warn("Using local Firestore");
   connectFirestoreEmulator(db, "localhost", "8080");
   console.warn("Using local Auth");
-  connectAuthEmulator(auth, "http://localhost:9099/", { disableWarnings: true });
+  connectAuthEmulator(auth, "http://localhost:9099/", {
+    disableWarnings: true,
+  });
+  console.warn("Using local storage");
+  connectStorageEmulator(storage, "localhost", "9199");
 }
 
 export const signInWithEmailAndPassword = async (email, password) => {
-  const response = await FirebaseSignInWithEmailAndPassword(auth, email, password);
+  const response = await FirebaseSignInWithEmailAndPassword(
+    auth,
+    email,
+    password
+  );
   return response;
 };
 
-export const signUp = (email, password) => createUserWithEmailAndPassword(auth, email, password);
+export const signUp = (email, password) =>
+  createUserWithEmailAndPassword(auth, email, password);
 
 export const logout = () => signOut(auth);
 
@@ -85,7 +99,10 @@ export async function readUserCollection() {
 }
 
 export async function readUserCollectionCommerce() {
-  const querySnapshot = await query(collection(db, "Utilisateurs"), where("Commerce", "==", true));
+  const querySnapshot = await query(
+    collection(db, "Utilisateurs"),
+    where("Commerce", "==", true)
+  );
   return querySnapshot;
 }
 
