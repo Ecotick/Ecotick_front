@@ -1,44 +1,43 @@
-import React from 'react';
-import * as FiIcons from 'react-icons/fi';
-import * as MdIcons from 'react-icons/md';
-import * as ImIcons from 'react-icons/im';
+import React from "react";
+import * as FiIcons from "react-icons/fi";
+import * as MdIcons from "react-icons/md";
+import * as ImIcons from "react-icons/im";
 
 export const SidebarData = [
+  // {
+  //   title: 'Connexion',
+  //   path: '/login',
+  //   icon: <FiIcons.FiPower />,
+  //   cName: 'nav-text'
+  // },
   {
-    title: 'Connexion',
-    path: '/login',
-    icon: <FiIcons.FiPower />,
-    cName: 'nav-text'
-  },
-  {
-    title: 'Recherche',
-    path: '/search',
+    title: "Recherche",
+    path: "/search",
     icon: <FiIcons.FiSearch />,
-    cName: 'nav-text'
+    cName: "nav-text",
   },
   {
-    title: 'Mes Favoris',
-    path: '/favoris',
+    title: "Mes Favoris",
+    path: "/favoris",
     icon: <MdIcons.MdFavorite />,
-    cName: 'nav-text'
+    cName: "nav-text",
   },
   {
-    title: 'QR Code',
-    path: '/qrcode',
+    title: "QR Code",
+    path: "/qrcode",
     icon: <ImIcons.ImQrcode />,
-    cName: 'nav-text'
+    cName: "nav-text",
   },
   {
-    title: 'Coupons',
-    path: '/mescoupons',
+    title: "Coupons",
+    path: "/mescoupons",
     icon: <FiIcons.FiGift />,
-    cName: 'nav-text'
+    cName: "nav-text",
   },
   {
-    title: 'Tickets',
-    path: '/mestickets',
+    title: "Tickets",
+    path: "/mestickets",
     icon: <ImIcons.ImTicket />,
-    cName: 'nav-text'
+    cName: "nav-text",
   },
-
 ];

@@ -62,7 +62,7 @@ function Nav() {
 
       <nav className={sidebar ? "side-menu active" : "side-menu"}>
         <ul className="side-menu-items">
-          <li className="nav-text" style={{ width: "50%" }}>
+          <li className="nav-text">
             <Link to="/logout">
               {user ? <FaIcons.FaSignOutAlt /> : <FaIcons.FaSignInAlt />}
             </Link>
