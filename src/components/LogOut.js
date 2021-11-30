@@ -1,31 +1,39 @@
 import { AuthContext } from "./Firebase/AuthContext";
 import React, { useContext } from "react";
 import { useHistory } from "react-router";
-
-import './Logging.css'
+import { logout } from "./Firebase";
+import "./Logging.css";
 
 function LogOut() {
-  const {logout, user} = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
   const history = useHistory();
 
-  const handleSigninBtn = () => history.push('/login');
+  const handleLogout = () => {
+    logout();
+  };
 
-    if (user) {
-      console.log(user)
-      return (
+  const handleSigninBtn = () => history.push("/login");
+
+  if (user) {
+    return (
       <div className="bloc-form">
-        <h2>Connecté en tant que : {user.email}</h2>
+        <h2>Connecté en tant que : {user?.email}</h2>
 
-        <button className="signup-btn" onClick={logout}>Se déconnecter</button>
+        <button className="signup-btn" onClick={handleLogout}>
+          Se déconnecter
+        </button>
       </div>
-    )}
-    else return (
+    );
+  } else
+    return (
       <div className="bloc-form">
         <h2>Vous êtes déconnecté...</h2>
 
-        <button className="signup-btn" onClick={handleSigninBtn}>Se connecter</button>
+        <button className="signup-btn" onClick={handleSigninBtn}>
+          Se connecter
+        </button>
       </div>
-    )
+    );
 
   // return (
   //   <div>
@@ -34,4 +42,4 @@ function LogOut() {
   // )
 }
 
-export default LogOut
+export default LogOut;

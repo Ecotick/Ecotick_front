@@ -1,23 +1,24 @@
 import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "./Firebase/AuthContext";
+import { signUp } from "./Firebase";
 import "./Component.css";
 import "./Logging.css";
-import facebook from './Ressources/facebook2.png'
-import twitter from './Ressources/twitter.png'
-import google from './Ressources/google.png'
+import facebook from "./Ressources/facebook2.png";
+import twitter from "./Ressources/twitter.png";
+import google from "./Ressources/google.png";
+
+const data = {
+  pseudo: "",
+  email: "",
+  psw: "",
+  confirmpsw: "",
+};
 
 function SignUp() {
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const history = useHistory();
-  const {signUp} = useContext(AuthContext);
-
-  const data = {
-    pseudo: "",
-    email: "",
-    psw: "",
-    confirmpsw: "",
-  };
+  const { user, setUser } = useContext(AuthContext);
 
   const [loginData, setLoginData] = useState(data);
 
@@ -28,18 +29,19 @@ function SignUp() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { email, psw } = loginData;
-      signUp(email, psw)
-      .then((user) => {
-        console.log(user)
-        history.push('/monfil')
+    signUp(email, psw) // TODO passer le pseudo
+      .then((res) => {
+        /* console.log(res);
+        setUser(email); */
         setLoginData({ ...data });
+        history.push("/monfil");
       })
-        .catch((error) => {
+      .catch((error) => {
         setError(error);
       });
   };
 
-  const { pseudo, email, psw, confirmpsw } = loginData;
+  const { pseudo, email, psw, confirmpsw } = loginData; // TODO 1 state par valeur
 
   const btn =
     pseudo === "" || email === "" || psw === "" || psw !== confirmpsw ? (
@@ -51,7 +53,9 @@ function SignUp() {
     );
 
   //gestion erreurs
-  const errorMsg = error !== '' && <span style={{"color": "red"}}>{error.message}</span>
+  const errorMsg = error !== "" && (
+    <span style={{ color: "red" }}>{error.message}</span>
+  );
 
   return (
     <div>
@@ -102,19 +106,19 @@ function SignUp() {
         {btn}
         {/* <button className="signup-btn">Create an account</button> */}
 
-          <p className="others-signup">ou s'incrire avec :</p>
-          
-          <button type="button" className="others-signup-btn">
-            <img src={google} alt="logo-google"/>
-          </button>
-          
-          <button type="button" className="others-signup-btn">
-            <img src={twitter} alt="logo-github" />
-          </button>
-          
-          <button type="button" className="others-signup-btn">
-            <img src={facebook} alt="logo-facebook" />
-          </button>
+        <p className="others-signup">ou s'incrire avec :</p>
+
+        <button type="button" className="others-signup-btn">
+          <img src={google} alt="logo-google" />
+        </button>
+
+        <button type="button" className="others-signup-btn">
+          <img src={twitter} alt="logo-github" />
+        </button>
+
+        <button type="button" className="others-signup-btn">
+          <img src={facebook} alt="logo-facebook" />
+        </button>
       </form>
     </div>
   );

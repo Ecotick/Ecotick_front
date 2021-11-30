@@ -27,3 +27,16 @@ yarn-error.log*
 firebase-debug.log
 firestore-debug.log
 ui-debug.log
+emulators.backup/firebase-export-metadata.json
+emulators.backup/auth_export/accounts.json
+emulators.backup/auth_export/config.json
+emulators.backup/firestore_export/firestore_export.overall_export_metadata
+emulators.backup/firestore_export/all_namespaces/all_kinds/all_namespaces_all_kinds.export_metadata
+emulators.backup/firestore_export/all_namespaces/all_kinds/output-0
+emulators.backup/storage_export/buckets.json
+emulators.rules/firestore.rules
+firestore-backup/backup-2021-11-29/backup-2021-11-29.overall_export_metadata
+firestore-backup/backup-2021-11-29/all_namespaces/all_kinds/all_namespaces_all_kinds.export_metadata
+firestore-backup/backup-2021-11-29/all_namespaces/all_kinds/output-0
+firestore-backup/backup-2021-11-29/all_namespaces/all_kinds/output-1
+emulators.rules/firestore.rules
