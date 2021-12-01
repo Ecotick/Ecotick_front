@@ -113,11 +113,11 @@ export const login = async (email, password) => {
   return response;
 };
 
-export const signUp = async (email, password) => {
+export const signUp = async (email, password, pseudo) => {
   const newUser = (await createUserWithEmailAndPassword(auth, email, password))
     .user;
   // TODO gerer les erreur liés à la bonne création de compte
-  createUserDocument(newUser.uid, { email: newUser.email }); //TODO - ajouter pseudo dans les infos connexion
+  createUserDocument(newUser.uid, { email: newUser.email, pseudo }); //TODO - ajouter pseudo dans les infos connexion
 };
 
 export const logout = () => signOut(auth);
