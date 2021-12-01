@@ -40,3 +40,4 @@ firestore-backup/backup-2021-11-29/all_namespaces/all_kinds/all_namespaces_all_k
 firestore-backup/backup-2021-11-29/all_namespaces/all_kinds/output-0
 firestore-backup/backup-2021-11-29/all_namespaces/all_kinds/output-1
 emulators.rules/firestore.rules
+.vscode/settings.json

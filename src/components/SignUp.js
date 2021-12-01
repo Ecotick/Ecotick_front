@@ -29,7 +29,7 @@ function SignUp() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { email, psw } = loginData;
-    signUp(email, psw) // TODO passer le pseudo
+    signUp(email, psw, pseudo) // TODO passer le pseudo
       .then((res) => {
         /* console.log(res);
         setUser(email); */

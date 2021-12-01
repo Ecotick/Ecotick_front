@@ -38,6 +38,7 @@ function Nav() {
           variant="fullWidth"
         >
           <Tab
+            className="nav-text"
             onClick={showSidebar}
             icon={
               sidebar ? (

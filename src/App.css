@@ -15,7 +15,7 @@
 }
 
 .sidebarActive {
-  grid-template-columns: minmax(50px, 10vw) 1fr; /* TODO minmax */
+  grid-template-columns: minmax(35px, 10vw) 1fr; /* TODO minmax */
   grid-template-areas:
     "side main"
     "bar bar";
