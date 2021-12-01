@@ -1,7 +1,7 @@
 import React from "react";
 import { readUserCollection } from "./Firebase";
 import { useState, useEffect } from "react";
-import Card from "./Card";
+import StoreCard from "./StoreCard";
 import SearchBar from "./SearchBar";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -38,14 +38,14 @@ function Favoris(props) {
     });
   }, []);
 
-  // display.map((item) => console.log(item));
+  display.map((item) => console.log(item));
 
   return (
     // <div style={{ "max-height": "96%", marginTop: "4%", overflow: "scroll" }}>
     <>
       <CssBaseline />
       <ElevationScroll {...props}>
-        <AppBar sx={{ "max-width": "90vw", mx: "auto", textAlign: "center" }}>
+        <AppBar sx={{ maxWidth: "80vw", mx: "auto", textAlign: "center" }}>
           <Toolbar sx={{ mx: "auto" }}>
             <Typography variant="h3" component="div">
               Mes favoris
@@ -55,11 +55,16 @@ function Favoris(props) {
         </AppBar>
       </ElevationScroll>
       <Container
-        sx={{ "max-height": "90%", marginTop: "20%", overflow: "scroll" }}
+        sx={{
+          maxHeight: "90%",
+          marginTop: "20%",
+          overflow: "scroll",
+          mx: "auto",
+        }}
       >
         <Box>
           {display.map((item, index) => (
-            <Card content={item} key={index} />
+            <StoreCard content={item} key={index} />
           ))}
         </Box>
       </Container>
