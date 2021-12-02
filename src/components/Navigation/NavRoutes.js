@@ -7,7 +7,7 @@ import MonFil from "../MonFil";
 import Carte from "../Carte";
 import Parametres from "../Parametres";
 import Search from "../Search";
-import Favoris from "../Favoris";
+import Favoris from "../Favorite";
 import QrCode from "../QrCode";
 import Coupons from "../Coupons";
 import Tickets from "../Tickets";
@@ -22,9 +22,8 @@ function NavRoutes() {
       <Nav />
 
       <Switch>
-
         <Route path="/admin" exact component={Admin} />
-        
+
         <Route path="/" exact component={Home} />
 
         <Route path="/signup" exact component={SignUp} />
@@ -43,7 +42,7 @@ function NavRoutes() {
 
         <Route path="/search" exact component={Search} />
 
-        <Route path="/favoris" exact component={Favoris} />
+        <Route path="/favorite" exact component={Favoris} />
 
         <Route path="/qrcode" exact component={QrCode} />
 

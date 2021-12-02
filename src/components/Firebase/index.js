@@ -93,13 +93,13 @@ export async function readUserCollectionCommerce() {
   return querySnapshot;
 }
 
-export async function loadImage(image) {
-  const imageRef = ref(storage, `images/${image}`);
-  console.log(imageRef);
-  const imageFile = await getDownloadURL(imageRef);
-  console.log(imageFile);
-  return imageFile;
-}
+// export async function loadImage(image) {
+//   const imageRef = ref(storage, `images/${image}`);
+//   console.log(imageRef);
+//   const imageFile = await getDownloadURL(imageRef);
+//   console.log(imageFile);
+//   return imageFile;
+// }
 // ---------- Update ----------
 
 // ---------- Delete ----------

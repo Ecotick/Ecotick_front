@@ -18,7 +18,7 @@ export const SidebarData = [
   },
   {
     title: "Mes Favoris",
-    path: "/favoris",
+    path: "/favorite",
     icon: <MdIcons.MdFavorite />,
     cName: "nav-text",
   },
