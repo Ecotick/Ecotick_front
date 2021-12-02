@@ -6,7 +6,6 @@ import SearchBar from "./SearchBar";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import CssBaseline from "@mui/material/CssBaseline";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -23,34 +22,61 @@ function ElevationScroll(props) {
   });
 }
 
-function Favoris(props) {
-  // const [shopList, setShopList] = useState()
+function Favorite(props) {
+  const [searchValue, setSearchValue] = useState("");
 
-  const [display, setDisplay] = useState([<h1>Loading ...</h1>]);
+  const [isCommerceCollectionLoading, setIsCommerceCollectionLoading] =
+    useState(true);
+  const [commerceCollection, setCommerceCollection] = useState([]);
+  const [display, setDisplay] = useState([]);
 
   useEffect(() => {
     readUserCollection().then((snapshot) => {
       const listOfShops = snapshot.docs.map((doc) => doc.data());
-      const shopList = listOfShops.filter(
+      let shopList = listOfShops.filter(
         (item) => item.Commerce === true || item.Commerce === "true"
       );
-      setDisplay(shopList);
+      setCommerceCollection(shopList);
+      setIsCommerceCollectionLoading(false);
     });
   }, []);
 
+  useEffect(() => {
+    setDisplay(
+      searchValue
+        ? commerceCollection.filter(
+            (item) =>
+              item.Name.toLowerCase().includes(searchValue.toLowerCase()) ||
+              item.Adresse?.toLowerCase().includes(searchValue.toLowerCase()) // TODO a harmoniser par rapport aux donnees requises dans le formulaire
+          )
+        : [...commerceCollection]
+    );
+  }, [searchValue, commerceCollection]);
+
   display.map((item) => console.log(item));
 
-  return (
+  return isCommerceCollectionLoading ? (
+    <h1>Loading ...</h1>
+  ) : (
     // <div style={{ "max-height": "96%", marginTop: "4%", overflow: "scroll" }}>
     <>
-      <CssBaseline />
       <ElevationScroll {...props}>
-        <AppBar sx={{ maxWidth: "80vw", mx: "auto", textAlign: "center" }}>
+        <AppBar
+          sx={{
+            maxWidth: "90%",
+            mx: "auto",
+            textAlign: "center",
+            // zIndex: "-1",
+          }}
+        >
           <Toolbar sx={{ mx: "auto" }}>
             <Typography variant="h3" component="div">
               Mes favoris
             </Typography>
-            <SearchBar />
+            <SearchBar
+              searchValue={searchValue}
+              setSearchValue={setSearchValue}
+            />
           </Toolbar>
         </AppBar>
       </ElevationScroll>
@@ -73,4 +99,4 @@ function Favoris(props) {
   );
 }
 
-export default Favoris;
+export default Favorite;
