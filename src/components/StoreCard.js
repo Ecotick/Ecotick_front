@@ -13,12 +13,14 @@ function StoreCard({ content }) {
         component="img"
         height="50"
         sx={{ width: 50, display: "inline-block" }}
-        image={content.Devanture ? content.Devanture : "/media/No_photo.jpg"}
+        image={
+          content.storefrontUrl ? content.storefrontUrl : "/media/No_photo.jpg"
+        }
         alt="Store front"
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Id : {content.UserId} - Nom : {content.Name}{" "}
+        <Typography gutterBottom variant="h4" sx={{ textAlign: "center" }}>
+          {content["Nom du commerce"]}
         </Typography>
         <CardActions>
           <Button size="small">Share</Button>

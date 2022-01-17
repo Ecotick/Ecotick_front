@@ -36,16 +36,17 @@ export const auth = getAuth();
 export const db = getFirestore();
 export const storage = getStorage();
 
-if (window.location.hostname === "localhost") {
-  console.warn("Using local Firestore");
-  connectFirestoreEmulator(db, "localhost", "8080");
-  console.warn("Using local Auth");
-  connectAuthEmulator(auth, "http://localhost:9099/", {
-    disableWarnings: true,
-  });
-  console.warn("Using local storage");
-  connectStorageEmulator(storage, "localhost", "9199");
-}
+// ---------- Emulator setup ----------
+// if (window.location.hostname === "localhost") {
+//   console.warn("Using local Firestore");
+//   connectFirestoreEmulator(db, "localhost", "8080");
+//   console.warn("Using local Auth");
+//   connectAuthEmulator(auth, "http://localhost:9099/", {
+//     disableWarnings: true,
+//   });
+//   console.warn("Using local storage");
+//   connectStorageEmulator(storage, "localhost", "9199");
+// }
 
 // ---------- Create ----------
 
@@ -76,7 +77,7 @@ export async function readUser(userId) {
 }
 
 export async function readUserCollection() {
-  const querySnapshot = await getDocs(collection(db, "Utilisateurs"));
+  const querySnapshot = await getDocs(collection(db, "traders"));
   // const usersList = querySnapshot.docs.map((item) => item.data());
   // console.log(usersList);
   // querySnapshot.forEach((doc) => {

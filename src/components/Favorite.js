@@ -11,17 +11,6 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import "./Component.css";
 
-function ElevationScroll(props) {
-  const { children } = props;
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 0,
-  });
-  return React.cloneElement(children, {
-    elevation: trigger ? 4 : 0,
-  });
-}
-
 function Favorite(props) {
   const [searchValue, setSearchValue] = useState("");
 
@@ -33,9 +22,7 @@ function Favorite(props) {
   useEffect(() => {
     readUserCollection().then((snapshot) => {
       const listOfShops = snapshot.docs.map((doc) => doc.data());
-      let shopList = listOfShops.filter(
-        (item) => item.Commerce === true || item.Commerce === "true"
-      );
+      let shopList = listOfShops.filter((item) => item.Adresse);
       setCommerceCollection(shopList);
       setIsCommerceCollectionLoading(false);
     });
@@ -46,7 +33,9 @@ function Favorite(props) {
       searchValue
         ? commerceCollection.filter(
             (item) =>
-              item.Name.toLowerCase().includes(searchValue.toLowerCase()) ||
+              item["Nom du commerce"]
+                .toLowerCase()
+                .includes(searchValue.toLowerCase()) ||
               item.Adresse?.toLowerCase().includes(searchValue.toLowerCase()) // TODO a harmoniser par rapport aux donnees requises dans le formulaire
           )
         : [...commerceCollection]
@@ -60,26 +49,24 @@ function Favorite(props) {
   ) : (
     // <div style={{ "max-height": "96%", marginTop: "4%", overflow: "scroll" }}>
     <>
-      <ElevationScroll {...props}>
-        <AppBar
-          sx={{
-            maxWidth: "90%",
-            mx: "auto",
-            textAlign: "center",
-            // zIndex: "-1",
-          }}
-        >
-          <Toolbar sx={{ mx: "auto" }}>
-            <Typography variant="h3" component="div">
-              Mes favoris
-            </Typography>
-            <SearchBar
-              searchValue={searchValue}
-              setSearchValue={setSearchValue}
-            />
-          </Toolbar>
-        </AppBar>
-      </ElevationScroll>
+      <AppBar
+        sx={{
+          maxWidth: "90%",
+          mx: "auto",
+          textAlign: "center",
+          // zIndex: "-1",
+        }}
+      >
+        <Toolbar sx={{ mx: "auto" }}>
+          <Typography variant="h3" component="div">
+            Mes favoris
+          </Typography>
+          <SearchBar
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+          />
+        </Toolbar>
+      </AppBar>
       <Container
         sx={{
           maxHeight: "90%",
