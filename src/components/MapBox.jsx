@@ -28,20 +28,21 @@ const data = [
 const styles = {
   width: "125%",
   height: "100%",
-  position: "absolute"
+  position: "absolute",
 };
 
-const position = {
-  lng: 4.833333,
-  lat: 49.933333,
-  zoom: 9,
-};
+// const position = {
+//   lng: 4.833333,
+//   lat: 49.933333,
+//   zoom: 9,
+// };
 
-const MapBox = () => {
+const MapBox = ({ lng, lat, zoom }) => {
+  console.log(lng + " " + lat);
   const [map, setMap] = useState(null);
   const mapContainer = useRef(null);
 
-  const { sidebar } = useContext(SidebarContext);
+  // const { sidebar } = useContext(SidebarContext);
 
   useEffect(() => {
     mapboxgl.accessToken =
@@ -50,8 +51,8 @@ const MapBox = () => {
       const map = new mapboxgl.Map({
         container: mapContainer.current,
         style: "mapbox://styles/mapbox/streets-v11", // stylesheet location
-        center: [position.lng, position.lat],
-        zoom: position.zoom
+        center: [lng, lat],
+        zoom: zoom,
       });
 
       data.forEach((location) => {
@@ -66,7 +67,7 @@ const MapBox = () => {
           )
           .addTo(map);
       });
-  
+
       map.on("load", () => {
         setMap(map);
         map.resize();
@@ -74,9 +75,9 @@ const MapBox = () => {
     };
 
     if (!map) initializeMap({ setMap, mapContainer });
-  }, [map]);
+  }, [map, lat]);
 
-  return <div ref={el => (mapContainer.current = el)} style={styles} />;
+  return <div ref={(el) => (mapContainer.current = el)} style={styles} />;
 };
 
-export default MapBox
+export default MapBox;
